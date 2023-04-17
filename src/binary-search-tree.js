@@ -56,15 +56,15 @@ class BinarySearchTree {
     // throw new NotImplementedError('Not implemented');
     // // remove line with error and write your code here
 
-    let currentNode = this.base;
+    let current = this.base;
 
-    while (currentNode) {
-      if (currentNode.data === data) {
+    while (current) {
+      if (current.data === data) {
         return true;
-      } else if (data < currentNode.data) {
-        currentNode = currentNode.left
+      } else if (data < current.data) {
+        current = current.left
       } else {
-        currentNode = currentNode.right
+        current = current.right
       }
     }
 
@@ -75,15 +75,15 @@ class BinarySearchTree {
     // throw new NotImplementedError('Not implemented');
     // // remove line with error and write your code here
 
-    let currentNode = this.base;
+    let current = this.base;
 
-    while (currentNode) {
-      if (currentNode.data === data) {
-        return currentNode;
-      } else if (data < currentNode.data) {
-        currentNode = currentNode.left
+    while (current) {
+      if (current.data === data) {
+        return current;
+      } else if (data < current.data) {
+        current = current.left
       } else {
-        currentNode = currentNode.right
+        current = current.right
       }
     }
 
@@ -91,10 +91,12 @@ class BinarySearchTree {
   }
 
   remove(data) {
+
+    let node = this.base; //
     this.base = removeElem(this.base, data);
 
-    function removeElem(current, data) {
-      if (!current) {
+    function removeElem(node, data) {
+      if (!node) {
         return null;
       }
 
@@ -138,12 +140,12 @@ class BinarySearchTree {
       return null;
     }
 
-    let minNode = this.base;
-    while(minNode.left) {
-      minNode = minNode.left;
+    let min = this.base;
+    while(min.left) {
+      min = min.left;
     }
 
-    return minNode.data;
+    return min.data;
   }
 
   max() {
@@ -153,12 +155,12 @@ class BinarySearchTree {
       return null;
     }
 
-    let maxNode = this.base;
-    while(maxNode.right) {
-      maxNode = maxNode.right;
+    let max = this.base;
+    while(max.right) {
+      max = max.right;
     }
 
-    return maxNode.data;
+    return max.data;
   }
 }
 
